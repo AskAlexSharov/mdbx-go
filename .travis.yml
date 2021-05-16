@@ -8,9 +8,11 @@ script:
   - choco upgrade mingw cmake git -y --no-progress
   - choco version all
   - cd mdbx/dist
-  - pwd && cmake -G "MinGW Makefiles" . -D CMAKE_MAKE_PROGRAM:PATH=C:/ProgramData/chocolatey/bin/make.exe -D MDBX_BUILD_SHARED_LIBRARY:BOOL=ON -D CMAKE_C_FLAGS:STRING="-Wno-unused-variable -Wno-unused-parameter -Wno-unused-function" -D CMAKE_CXX_FLAGS:STRING="-Wno-unused-variable -Wno-unused-parameter -Wno-unused-function"
+  - pwd && cmake -G "MinGW Makefiles" . -D MDBX_BUILD_SHARED_LIBRARY:BOOL=ON -D CMAKE_C_FLAGS:STRING="-Wno-unused-variable -Wno-unused-parameter -Wno-unused-function" -D CMAKE_CXX_FLAGS:STRING="-Wno-unused-variable -Wno-unused-parameter -Wno-unused-function"
   - cmake --build .
   - ls .
   - cd ./..
   - go build .
   - go test .
+#  - pwd && cmake -G "MinGW Makefiles" . -D CMAKE_MAKE_PROGRAM:PATH=C:/ProgramData/chocolatey/bin/make.exe -D MDBX_BUILD_SHARED_LIBRARY:BOOL=ON -D CMAKE_C_FLAGS:STRING="-Wno-unused-variable -Wno-unused-parameter -Wno-unused-function" -D CMAKE_CXX_FLAGS:STRING="-Wno-unused-variable -Wno-unused-parameter -Wno-unused-function"
+
