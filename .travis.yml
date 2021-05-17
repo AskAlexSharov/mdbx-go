@@ -11,7 +11,6 @@ script:
   - cmake -G "MinGW Makefiles" . -D MDBX_BUILD_SHARED_LIBRARY:BOOL=ON -D MDBX_WITHOUT_MSVC_CRT:BOOOL=OFF -D CMAKE_C_FLAGS:STRING="-Wno-unused-variable -Wno-unused-parameter -Wno-unused-function" -D CMAKE_CXX_FLAGS:STRING="-Wno-unused-variable -Wno-unused-parameter -Wno-unused-function"
   - cmake --build .
   - cp libmdbx.dll C:/WINDOWS/SYSTEM32/
-  - ls .
   - cd ./..
   - go build .
   - go test -v .
