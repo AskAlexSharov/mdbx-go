@@ -135,8 +135,12 @@ package mdbx
 //#cgo darwin CFLAGS: -O2 -g -Werror -Wno-deprecated-declarations -Wextra -Wpedantic -fPIC -fvisibility=hidden -pthread -Wno-error=attributes -Wno-implicit-fallthrough -Wno-unused-function -Wno-unused-parameter -Wno-format-extra-args -Wbad-function-cast -Wno-missing-field-initializers -DNDEBUG=1
 //#cgo windows CFLAGS: -O2 -g -Werror -Wno-deprecated-declarations -Wextra -Wpedantic -fPIC -fvisibility=hidden -pthread -Wno-error=attributes -Wno-implicit-fallthrough -Wno-unused-function -Wno-unused-parameter -Wno-format-extra-args -Wbad-function-cast -Wno-missing-field-initializers -DNDEBUG=1 -Wno-cast-function-type
 
-#cgo CFLAGS: -pthread -W -Wall -Wno-format -Wno-implicit-fallthrough -Wno-cast-function-type -Wno-unused-parameter -Wno-format-extra-args -Wbad-function-cast -Wno-missing-field-initializers -O2 -g -Wno-deprecated-declarations
-#cgo LDFLAGS: -v -L"${SRCDIR}" -llibmdbx
+#cgo CFLAGS: -O2 -g -Wno-deprecated-declarations -pthread -W -Wall -Wno-format -Wno-implicit-fallthrough -Wno-unused-parameter -Wno-format-extra-args -Wno-missing-field-initializers
+#cgo windows CFLAGS: -Wno-bad-function-cast -Wno-cast-function-type
+
+#cgo !windows LDFLAGS: -l"${SRCDIR}"/dist/mdbx-static
+#cgo windows LDFLAGS: -v -L"${SRCDIR}"/dist -L./dist -llibmdbx
+
 
 //#cgo LDFLAGS: -v -L. -L"${SRCDIR}"/../libmdbx/build -lmdbx
 
