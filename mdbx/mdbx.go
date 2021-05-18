@@ -139,8 +139,7 @@ package mdbx
 #cgo windows CFLAGS: -Wno-bad-function-cast -Wno-cast-function-type
 
 #cgo !windows LDFLAGS: ${SRCDIR}/dist/mdbx-static.o
-#cgo windows LDFLAGS: -v -L./dist -llibmdbx
-
+#cgo windows LDFLAGS: -v -L./dist -L"${SRCDIR}"/dist -llibmdbx
 
 //#cgo LDFLAGS: -v -L. -L"${SRCDIR}"/../libmdbx/build -lmdbx
 
